@@ -25,8 +25,7 @@ class FlowMenu extends StatefulWidget {
   State<FlowMenu> createState() => _FlowMenuState();
 }
 
-class _FlowMenuState extends State<FlowMenu>
-    with SingleTickerProviderStateMixin {
+class _FlowMenuState extends State<FlowMenu> with SingleTickerProviderStateMixin {
   late AnimationController menuAnimation;
   IconData lastTapped = Icons.notifications;
   final List<IconData> menuItems = <IconData>[
@@ -41,37 +40,37 @@ class _FlowMenuState extends State<FlowMenu>
     if (icon != Icons.menu) {
       setState(() => lastTapped = icon);
     }
-  }//last tap identify
+  }
 
   @override
   void initState() {
     super.initState();
     menuAnimation = AnimationController(
-      duration: const Duration(microseconds:250),//Time of animation taking place
-      vsync: this,//Creates an animation controller.
+      duration: const Duration(microseconds: 700),
+      vsync: this,
     );
   }
 
   Widget flowMenuItem(IconData icon) {
-    final double buttonDiameter =
-        MediaQuery.of(context).size.width / menuItems.length;
+    final double buttonDiameter = MediaQuery.of(context).size.width / menuItems.length;
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8.0),
       child: RawMaterialButton(
-        fillColor: lastTapped == icon ? Colors.amber[700] : Colors.blue,
+        fillColor: lastTapped == icon ? Colors.amber[700] : Colors.blue,//on tap color
         splashColor: Colors.amber[100],
         shape: const CircleBorder(),
         constraints: BoxConstraints.tight(Size(buttonDiameter, buttonDiameter)),
         onPressed: () {
           _updateMenu(icon);
+
           menuAnimation.status == AnimationStatus.completed
               ? menuAnimation.reverse()
               : menuAnimation.forward();
         },
         child: Icon(
           icon,
-          color: Colors.white,
-          size: 45.0,
+          color: Colors.black,
+          size: 50.0,
         ),
       ),
     );
@@ -86,10 +85,10 @@ class _FlowMenuState extends State<FlowMenu>
     );
   }
 }
-
+/// Flow layouts are optimized for moving children around the screen using
+/// transformation matrices.
 class FlowMenuDelegate extends FlowDelegate {
-  FlowMenuDelegate({required this.menuAnimation})
-      : super(repaint: menuAnimation);
+  FlowMenuDelegate({required this.menuAnimation}) : super(repaint: menuAnimation);
 
   final Animation<double> menuAnimation;
 
@@ -97,7 +96,9 @@ class FlowMenuDelegate extends FlowDelegate {
   bool shouldRepaint(FlowMenuDelegate oldDelegate) {
     return menuAnimation != oldDelegate.menuAnimation;
   }
-
+//A context in which a FlowDelegate paints.
+// Provides information about the current size of the container
+// and the children and a mechanism for painting children.
   @override
   void paintChildren(FlowPaintingContext context) {
     double dx = 0.0;
@@ -114,3 +115,7 @@ class FlowMenuDelegate extends FlowDelegate {
     }
   }
 }
+
+
+//flow deligate
+//SingleTickerProviderStateMixin
