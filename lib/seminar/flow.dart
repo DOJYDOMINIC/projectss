@@ -69,7 +69,7 @@ class _FlowMenuState extends State<FlowMenu> with SingleTickerProviderStateMixin
         },
         child: Icon(
           icon,
-          color: Colors.black,
+          color: Colors.white,
           size: 50.0,
         ),
       ),
