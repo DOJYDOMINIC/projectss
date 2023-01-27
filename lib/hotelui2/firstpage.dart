@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:projectss/hotelui2/placedetaild.dart';
 import 'data.dart';
+import 'detailing.dart';
 
 class Firstpage extends StatelessWidget {
   @override
@@ -57,17 +58,15 @@ class Firstpage extends StatelessWidget {
               width: 360,
               height: 60,
               decoration: BoxDecoration(
-                  color: Colors.grey.shade400,
+                  color: Colors.grey.shade300,
                   borderRadius: BorderRadius.circular(20)),
               child: Center(
                 child: TextField(
                   cursorColor: Colors.grey,
-                  decoration: InputDecoration(
+                  decoration: InputDecoration(isCollapsed:true,
                     hintText: "Search Place",
                     border: InputBorder.none,
                     contentPadding: EdgeInsets.only(left: 15),
-                    focusedBorder: UnderlineInputBorder(
-                        borderSide: BorderSide(color: Colors.grey.shade400)),
                     suffix: Icon(
                       Icons.search,
                       size: 30,
@@ -108,37 +107,41 @@ class Firstpage extends StatelessWidget {
               itemBuilder: (BuildContext context, int index) {
                 return Padding(
                   padding: const EdgeInsets.all(10),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(30),
-                      image: DecorationImage(
-                          fit: BoxFit.cover,
-                          image: NetworkImage(
-                            (images[index]),
-                          )),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(15.0),
-                      child: Stack(
-                        children: [
-                          Container(
-                            width: 45,
-                            height: 15,
-                            color: Colors.blue,
-                            child: Center(
-                              child: Text(
-                                price[index],
-                                style: TextStyle(color: Colors.white),
+                  child: GestureDetector(onTap: (){
+                    Navigator.push(context,MaterialPageRoute(builder: (context) => Detailss(),));
+                  },
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(30),
+                        image: DecorationImage(
+                            fit: BoxFit.cover,
+                            image: NetworkImage(
+                              (images[index]),
+                            )),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(15.0),
+                        child: Stack(
+                          children: [
+                            Container(
+                              width: 45,
+                              height: 15,
+                              color: Colors.blue,
+                              child: Center(
+                                child: Text(
+                                  price[index],
+                                  style: TextStyle(color: Colors.white),
+                                ),
                               ),
                             ),
-                          ),
-                          Positioned(
-                            top: 120,
-                            child: Text(places[index],
-                                style: TextStyle(
-                                    color: Colors.white, fontSize: 18)),
-                          ),
-                        ],
+                            Positioned(
+                              top: 120,
+                              child: Text(places[index],
+                                  style: TextStyle(
+                                      color: Colors.white, fontSize: 18)),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
