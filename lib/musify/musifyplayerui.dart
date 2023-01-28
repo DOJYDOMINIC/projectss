@@ -155,8 +155,6 @@ class _MusifyState extends State<Musify> {
                             Icon(Icons.star_border_outlined,color: Colors.pink.shade200,),
                             SizedBox(width: 10,),
                             Icon(Icons.download,color: Colors.pink.shade200,),
-
-
                           ],
                         ),
                       ),
@@ -168,7 +166,7 @@ class _MusifyState extends State<Musify> {
         ),
       ),
       bottomNavigationBar: FlashyTabBar(
-        backgroundColor: Colors.black,
+        backgroundColor: Color.fromARGB(255, 5, 5, 5),
         selectedIndex: selectedIndex,
         showElevation: true,
         onItemSelected: (index) => setState(() {

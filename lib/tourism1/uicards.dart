@@ -82,7 +82,7 @@ class Uidetails extends StatelessWidget {
                 enlargeCenterPage: true,
                 enlargeFactor: 0.3,
                 scrollDirection: Axis.horizontal,
-              ))
+              )),
         ],
       ),
     );
