@@ -38,6 +38,7 @@ dependencies:
   flutter_point_tab_bar: ^0.2.0
   custom_sliding_segmented_control: ^1.7.3
   slide_switcher: ^1.1.2
+  flashy_tab_bar2: ^0.0.6
 
 
   # The following adds the Cupertino Icons font to your application.
