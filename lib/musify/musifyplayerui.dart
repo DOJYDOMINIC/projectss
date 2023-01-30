@@ -99,7 +99,7 @@ class _MusifyState extends State<Musify> {
                 options: CarouselOptions(
                   height: 200,
                   aspectRatio: 16 / 9,
-                  viewportFraction: 0.8,
+                  viewportFraction: 0.7,
                   initialPage: 0,
                   enableInfiniteScroll: true,
                   reverse: false,

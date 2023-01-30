@@ -55,7 +55,7 @@ class _MusifyState extends State<Musify> {
                   child: TextField(
                     decoration: InputDecoration(
                       hintText: "Search...",
-                      suffix: Icon(Icons.search),
+                      suffixIcon: Icon(Icons.search,color: Colors.black,),
                       border: InputBorder.none
                     ),
                     cursorColor: Colors.black,
