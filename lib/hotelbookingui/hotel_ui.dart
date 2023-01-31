@@ -231,7 +231,6 @@ class _Hotel_appState extends State<Hotel_app> {
           //   height: 20,
           // ),
           Expanded(
-            flex: 3,
             child: ListView.builder(
               itemBuilder: (BuildContext context, int index) {
                 return Padding(

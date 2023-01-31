@@ -1,12 +1,11 @@
-
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import '../hotelbookingui/hoteldata.dart';
 
-void main (){
+void main() {
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
-    home:Hotelapp(),
+    home: Hotelapp(),
   ));
 }
 
@@ -19,11 +18,13 @@ class Hotelapp extends StatefulWidget {
 
 class _HotelappState extends State<Hotelapp> {
   int _selectedIndex = 0;
+
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
     });
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,17 +38,18 @@ class _HotelappState extends State<Hotelapp> {
                 trailing: Container(
                   width: 75,
                   height: 100,
-                  decoration: BoxDecoration(borderRadius: BorderRadius.circular(10),
-                    image: DecorationImage(
-                      fit: BoxFit.cover,
-                        image: NetworkImage("https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"))
-                  ),
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      image: DecorationImage(
+                          fit: BoxFit.cover,
+                          image: NetworkImage(
+                              "https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"))),
                 ),
               ),
             ),
             SliverToBoxAdapter(
               child: Padding(
-                padding: EdgeInsets.only(top: 30,left: 10,right: 10),
+                padding: EdgeInsets.only(top: 30, left: 10, right: 10),
                 child: Container(
                   height: 50,
                   decoration: BoxDecoration(
@@ -85,11 +87,12 @@ class _HotelappState extends State<Hotelapp> {
             ),
             SliverToBoxAdapter(
                 child: Padding(
-                  padding: const EdgeInsets.only(left: 10,top: 20),
-                  child: Text("Popular Hotels",style: TextStyle(
-                    fontWeight: FontWeight.bold,fontSize: 25
-                  ),),
-                )),
+              padding: const EdgeInsets.only(left: 10, top: 20),
+              child: Text(
+                "Popular Hotels",
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
+              ),
+            )),
             SliverToBoxAdapter(
               child: CarouselSlider.builder(
                 options: CarouselOptions(
@@ -111,18 +114,7 @@ class _HotelappState extends State<Hotelapp> {
                     padding: const EdgeInsets.all(8.0),
                     child: Container(
                       decoration: BoxDecoration(
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.grey.shade600,
-                              spreadRadius: 1,
-                              blurRadius: 5,
-                              offset: const Offset(0, 5),
-                            ),
-                            BoxShadow(
-                              color: Colors.grey.shade300,
-                              offset: const Offset(-5,0),
-                            )
-                          ],
+                          border: Border.all(color: Colors.grey.shade300),
                           borderRadius: BorderRadius.circular(20)),
                       child: Column(
                         children: [
@@ -141,7 +133,8 @@ class _HotelappState extends State<Hotelapp> {
                           Expanded(
                             flex: 2,
                             child: Padding(
-                              padding: const EdgeInsets.only(right: 90, top: 10),
+                              padding:
+                                  const EdgeInsets.only(right: 80, top: 10),
                               child: Wrap(
                                 children: [
                                   Text(
@@ -160,9 +153,11 @@ class _HotelappState extends State<Hotelapp> {
                           Expanded(
                             flex: 1,
                             child: Padding(
-                              padding: const EdgeInsets.only(right: 20, left: 20),
+                              padding:
+                                  const EdgeInsets.only(right: 20, left: 20),
                               child: Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
                                     rate[index],
@@ -172,7 +167,8 @@ class _HotelappState extends State<Hotelapp> {
                                     children: [
                                       Text(
                                         ratingg[index],
-                                        style: const TextStyle(color: Colors.blue),
+                                        style:
+                                            const TextStyle(color: Colors.blue),
                                       ),
                                       Icon(
                                         starrat[index],
@@ -200,19 +196,116 @@ class _HotelappState extends State<Hotelapp> {
                   children: const [
                     Text(
                       "Hotel Packages",
-                      style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                     ),
                     Text("View more")
                   ],
                 ),
               ),
             ),
-            SliverToBoxAdapter(
-              child: ListView.builder(itemBuilder: (context, index) {
-                return Container(
-
-                );
-              },itemCount: hotelstile.length,
+            SliverList(
+              delegate: SliverChildBuilderDelegate(
+                (BuildContext context, int index) {
+                  return Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                      height: 130,
+                      decoration: BoxDecoration(
+                        border: Border.all(color: Colors.grey.shade300),
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: Row(
+                        children: [
+                          Expanded(
+                            flex: 3,
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.horizontal(
+                                  left: Radius.circular(20)),
+                              child: Container(
+                                decoration: BoxDecoration(
+                                    image: DecorationImage(
+                                        fit: BoxFit.cover,
+                                        image:
+                                            NetworkImage(hotelstile[index]))),
+                              ),
+                            ),
+                          ),
+                          Expanded(
+                              flex: 3,
+                              child: Padding(
+                                padding: const EdgeInsets.only(bottom: 5),
+                                child: Container(
+                                  child: Row(
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsets.only(top: 10),
+                                        child: Column(
+                                          children: [
+                                            Padding(
+                                              padding: const EdgeInsets.only(
+                                                  right: 40, top: 5),
+                                              child: Text(
+                                                title1[index],
+                                                style: TextStyle(
+                                                    fontSize: 15,
+                                                    fontWeight:
+                                                        FontWeight.bold),
+                                              ),
+                                            ),
+                                            SizedBox(
+                                              height: 5,
+                                            ),
+                                            Text(title2[index],style: TextStyle(color: Colors.grey),),
+                                            Padding(
+                                              padding: const EdgeInsets.only(top: 5,
+                                                  right: 40),
+                                              child: Text(
+                                                rate[index],
+                                                style: TextStyle(
+                                                    color: Colors.blue),
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: const EdgeInsets.only(top:5),
+                                              child: Row(
+                                                children: [
+                                                  Icon(Icons.directions_car),
+                                                  SizedBox(
+                                                    width: 20,
+                                                  ),
+                                                  Icon(Icons.wine_bar),
+                                                  SizedBox(
+                                                    width: 20,
+                                                  ),
+                                                  Icon(Icons.wifi),
+                                                ],
+                                              ),
+                                            )
+                                          ],
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              )),
+                          Expanded(
+                              flex: 1,
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.horizontal(
+                                    left: Radius.circular(10)),
+                                child: Container(
+                                  height: 30,
+                                  color: Colors.blue,
+                                  child: Center(child: Text("Book",style: TextStyle(color: Colors.white),)),
+                                ),
+                              )),
+                        ],
+                      ),
+                    ),
+                  );
+                },
+                childCount: 3, // 1000 list items
               ),
             ),
           ],
