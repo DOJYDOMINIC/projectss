@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'bankbody.dart';
+import 'bankdatacard.dart';
 import 'bottomlist.dart';
 
 void main() {
-  runApp(MaterialApp(
+  runApp(const MaterialApp(
     debugShowCheckedModeBanner: false,
     home: SafeArea(child: BankApp()),
   ));
@@ -19,9 +20,9 @@ class BankApp extends StatelessWidget {
         leading: Icon(Icons.menu),
         centerTitle: true,
         title: Text("Welcome"),
-        actions: [
+        actions: const [
           Padding(
-            padding: const EdgeInsets.only(right: 10),
+            padding: EdgeInsets.only(right: 10),
             child: Icon(
               Icons.qr_code_scanner,
               size: 30,
@@ -44,104 +45,15 @@ class BankApp extends StatelessWidget {
                   ),
                 ],
               ),
-              Positioned(
-                right: 20,
-                top: 20,
-                left: 30,
-                child: Container(
-                  height: 160,
-                  width: 100,
-                  decoration: BoxDecoration(
-                      color: Colors.white,
-                      boxShadow: [
-                        BoxShadow(
-                            spreadRadius: 1,
-                            blurRadius: 10,
-                            offset: Offset(1, 0)),
-                      ],
-                      border: Border.all(color: Colors.grey),
-                      borderRadius: BorderRadius.circular(10)),
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 20, right: 10),
-                    child: Row(
-                      children: [
-                        CircleAvatar(
-                          radius: 50,
-                          backgroundColor: Colors.red,
-                          child: CircleAvatar(
-                            radius: 47,
-                            backgroundImage: NetworkImage(
-                                "https://images.unsplash.com/photo-1674502302867-3c8f75e13cb1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 10),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.only(right: 60),
-                                child: Text(
-                                  "Angelina Jolly",
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 18),
-                                ),
-                              ),
-                              Wrap(
-                                children: [
-                                  Row(
-                                    children: [
-                                      Text(
-                                        "NPR.",
-                                        style: TextStyle(
-                                            fontWeight: FontWeight.bold,
-                                            fontSize: 16,
-                                            color: Colors.red),
-                                      ),
-                                      Text(
-                                        "1,00,999.35",
-                                        style: TextStyle(
-                                            fontWeight: FontWeight.bold,
-                                            fontSize: 20,
-                                            color: Colors.red),
-                                      ),
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 10),
-                                        child: Icon(
-                                          Icons.remove_red_eye,
-                                          color: Colors.teal.shade200,
-                                          size: 18,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.only(right: 50),
-                                child: Text(
-                                  "281685854589641",
-                                  style: TextStyle(fontWeight: FontWeight.bold),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
+              Bankdatacard(),
             ],
           ),
           Padding(
             padding: const EdgeInsets.only(top: 7, bottom: 20),
             child: Row(
-              children: [
+              children: const [
                 Padding(
-                  padding: const EdgeInsets.only(left: 20, right: 20),
+                  padding: EdgeInsets.only(left: 20, right: 20),
                   child: Image(
                       width: 20,
                       height: 20,
@@ -150,7 +62,7 @@ class BankApp extends StatelessWidget {
                 ),
                 Text(
                   "WOULD YOU LIKE TO ?",
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
               ],
             ),
@@ -159,7 +71,7 @@ class BankApp extends StatelessWidget {
           Padding(
             padding: EdgeInsets.only(left: 20),
             child: Row(
-              children: [
+              children: const [
                 Image(
                     width: 20,
                     height: 20,
@@ -175,7 +87,7 @@ class BankApp extends StatelessWidget {
           ),
           Expanded(
             flex: 6,
-              child: Bottomlist())
+              child: Bottomlist()),
         ],
       ),
     );

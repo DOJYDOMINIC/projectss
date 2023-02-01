@@ -10,14 +10,14 @@ class Bottomlist extends StatelessWidget {
         padding: const EdgeInsets.only(left: 20,right: 20,bottom: 5),
         child: Card(
           child: Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
             ),
             child: Row(
               children: [
                 Container(
                   height: 75,
                   width: 10,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     color: Colors.red,
                       borderRadius: BorderRadius.only(topLeft: Radius.circular(5),bottomLeft:Radius.circular(5) )),
                 ),
