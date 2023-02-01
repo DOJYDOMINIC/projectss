@@ -45,7 +45,7 @@ class BankApp extends StatelessWidget {
                   ),
                 ],
               ),
-              Bankdatacard(),
+              Bankdatacard(), //title card
             ],
           ),
           Padding(
@@ -67,9 +67,10 @@ class BankApp extends StatelessWidget {
               ],
             ),
           ),
-          Container(height: 250, child: BankBody()),
+          Container(height: 250,
+              child: BankBody()), //grid view details
           Padding(
-            padding: EdgeInsets.only(left: 20),
+            padding: EdgeInsets.only(left: 20,top: 10),
             child: Row(
               children: const [
                 Image(
@@ -77,7 +78,9 @@ class BankApp extends StatelessWidget {
                     height: 20,
                     image: NetworkImage(
                         "https://cdn3.iconfinder.com/data/icons/arrows-85/24/Arrow-15-512.png")),
-                SizedBox(width: 20,),
+                SizedBox(
+                  width: 20,
+                ),
                 Text(
                   "LAST TRANSACTIONS",
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
@@ -85,9 +88,7 @@ class BankApp extends StatelessWidget {
               ],
             ),
           ),
-          Expanded(
-            flex: 6,
-              child: Bottomlist()),
+          Expanded(flex: 6, child: Bottomlist()), //Last Transaction list
         ],
       ),
     );
