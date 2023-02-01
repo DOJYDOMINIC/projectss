@@ -27,7 +27,7 @@ List title2 = [
 ];
 
 List rate =[
-"\$89/night",
+  "\$89/night",
   "\$96/night",
   "\$90/night",
 ];
