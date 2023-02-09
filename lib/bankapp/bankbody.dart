@@ -28,6 +28,7 @@ class _BankBodyState extends State<BankBody> {
     "https://cdn4.iconfinder.com/data/icons/data-transfer-red/64/QUEUE-duration-file_storage-transfer-time-512.png",
     "https://cdn3.iconfinder.com/data/icons/protection-and-security-red/64/QR_CODE-qr_code-electronics_-scan-digital-512.png"
   ];
+
   @override
   Widget build(BuildContext context) {
     return GridView.builder(

@@ -1,48 +1,52 @@
-
 import 'package:flutter/material.dart';
 import 'package:projectss/compantui/profilee.dart';
 
 import 'Upload.dart';
-void main(){
-  runApp(MaterialApp(home: Upload_Page(),debugShowCheckedModeBanner: false,
-    theme: ThemeData(primarySwatch: Colors.brown),));
-}
-class Upload_Page extends StatefulWidget{
 
+void main() {
+  runApp(MaterialApp(
+    home: Upload_Page(),
+    debugShowCheckedModeBanner: false,
+    theme: ThemeData(primarySwatch: Colors.brown),
+  ));
+}
+
+class Upload_Page extends StatefulWidget {
   @override
   State<Upload_Page> createState() => _Upload_PageState();
 }
 
 class _Upload_PageState extends State<Upload_Page> {
-  int selectindex=2;
+  int selectindex = 2;
 
-  List body= <Widget>[
-     Text("Home"),
-     Text("Grid"),
+  List body = <Widget>[
+    Text("Home"),
+    Text("Grid"),
     Upload(),
     Pro_File(),
   ];
-  void onitemtapped(int index){
+
+  void onitemtapped(int index) {
     setState(() {
-      selectindex=index;
+      selectindex = index;
     });
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       // appBar: AppBar(title:Text("BottomBar"),
       // ),
       bottomNavigationBar: Container(
-        child:ClipRRect(
+        child: ClipRRect(
           borderRadius: BorderRadius.only(
-              topRight: Radius.circular(50),
-              topLeft: Radius.circular(50)),
+              topRight: Radius.circular(50), topLeft: Radius.circular(50)),
           child: BottomNavigationBar(
             type: BottomNavigationBarType.shifting,
             backgroundColor: Colors.white,
             unselectedItemColor: Colors.black26,
             selectedItemColor: Colors.blue,
-            items:  [
+            items: [
               BottomNavigationBarItem(
                 icon: Icon(Icons.home),
                 label: "Home",
@@ -72,6 +76,7 @@ class _Upload_PageState extends State<Upload_Page> {
         //     padding: const EdgeInsets.all(50.0),
         //     child: Text("Welcome"),
         //   ),),),
-      ),);
+      ),
+    );
   }
 }

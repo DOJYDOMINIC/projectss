@@ -21,7 +21,6 @@ class _MusifyState extends State<Musify> {
     "https://i.scdn.co/image/ab67616d0000b273c85e9cfe721fb577d79a2b54",
     "https://i.scdn.co/image/ab67616d0000b273d2cc958e7bfa7f61b255c66e",
     "https://rofiles.azureedge.net/urls/grande/madera-cuadrada-spotify-g.jpg",
-    "https://i.scdn.co/image/ab67616d0000b2739986d69836eac008a927b032",
     "https://i.scdn.co/image/ab67616d0000b273e125bce803627d192c8f6697",
     "https://i.scdn.co/image/ab67616d0000b273c37f0437b5edc4e5eb77659d",
 
@@ -31,62 +30,64 @@ class _MusifyState extends State<Musify> {
     return Scaffold(
       backgroundColor: Colors.black,
 
-      body: SafeArea(
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(top: 20,bottom: 20),
-              child: Text(
-                "Playlists",
-                style: TextStyle(
-                    color: Colors.pink.shade200,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 30),
+      body: SingleChildScrollView(
+        child: SafeArea(
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(top: 20,bottom: 20),
+                child: Text(
+                  "Playlists",
+                  style: TextStyle(
+                      color: Colors.pink.shade200,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 30),
+                ),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 40, right: 40),
-              child: Container(
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                    borderRadius: BorderRadius.circular(30)),
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 15,right: 15),
-                  child: TextField(
-                    decoration: InputDecoration(
-                      hintText: "Search...",
-                      suffixIcon: Icon(Icons.search,color: Colors.black,),
-                      border: InputBorder.none
+              Padding(
+                padding: const EdgeInsets.only(left: 40, right: 40),
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                      borderRadius: BorderRadius.circular(30)),
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 15,right: 15),
+                    child: TextField(
+                      decoration: InputDecoration(
+                        hintText: "Search...",
+                        suffixIcon: Icon(Icons.search,color: Colors.black,),
+                        border: InputBorder.none
+                      ),
+                      cursorColor: Colors.black,
                     ),
-                    cursorColor: Colors.black,
                   ),
                 ),
               ),
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            Expanded(
-              child: GridView.builder(
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2),
-                itemBuilder: (BuildContext context, int index) {
-                  return Padding(
-                    padding: const EdgeInsets.all(15.0),
-                    child: Container(
-                      decoration: BoxDecoration(
-                          color: Colors.red,
-                          borderRadius: BorderRadius.circular(20),
-                          image: DecorationImage(
-                              fit: BoxFit.cover,
-                              image: NetworkImage(playlist[index]))),
-                    ),
-                  );
-                },
-                itemCount: imagesss.length,
+              SizedBox(
+                height: 20,
               ),
-            )
-          ],
+              Expanded(
+                child: GridView.builder(
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2),
+                  itemBuilder: (BuildContext context, int index) {
+                    return Padding(
+                      padding: const EdgeInsets.all(15.0),
+                      child: Container(
+                        decoration: BoxDecoration(
+                            color: Colors.red,
+                            borderRadius: BorderRadius.circular(20),
+                            image: DecorationImage(
+                                fit: BoxFit.cover,
+                                image: NetworkImage(playlist[index]))),
+                      ),
+                    );
+                  },
+                  itemCount: imagesss.length,
+                ),
+              )
+            ],
+          ),
         ),
       ),
       bottomNavigationBar: FlashyTabBar(

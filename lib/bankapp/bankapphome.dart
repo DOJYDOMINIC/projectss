@@ -17,6 +17,8 @@ class BankApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.red,
+        elevation: 0,
         leading: Icon(Icons.menu),
         centerTitle: true,
         title: Text("Welcome"),
